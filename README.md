@@ -11,6 +11,8 @@ support __AMD, CommonJS, Node, window.logger__
 
 ## Usage
 
+### CommonJS
+
   npm i logger --save
 
 ``` 
@@ -18,7 +20,7 @@ import logger from logger
 logger.emit({opt1:33, opt2: 'eewr'})
 ```
 
-### OR
+### winow.logger
 
 ```
 <script src="./index.js"></script>
