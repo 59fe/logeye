@@ -1,0 +1,35 @@
+{
+  "name": "logger",
+  "version": "1.0.0",
+  "description": "用户行为统计打点工具",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/59fe/logger.git"
+  },
+  "homepage": "https://github.com/59fe/logger",
+  "author": {
+    "name": "半边",
+    "email": "itaofe@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "半边",
+      "email": "itaofe@gmail.com"
+    }
+  ],
+  "bugs": {
+    "url": "https://github.com/59fe/logger/issues"
+  },
+  "readmeFilename": "README.md",
+  "dependencies": {
+  },
+  "keywords": [
+    "logger",
+    "log"
+  ],
+  "license": "Apache-2.0"
+}
