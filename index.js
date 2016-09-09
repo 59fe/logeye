@@ -7,20 +7,26 @@
     module.exports = factory()
   } else {
     // 浏览器全局变量(root 即 window)
-    root.returnExports = factory()
+    root.logger = factory()
   }
 }(this, function () {
   var logger = {
     // 把URL的queryString格式化成json对象，参数url如果不传，则取location.search
     parseUrl: function(url) {
-      var search = url ? url.replace(/^.+?\?/, '').replace(/#.*$/, '') : location.search.substring(1)
-      return JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
+      var search = url ? url.replace(/^.+?\?/, '').replace(/#.*$/, '') : location.search.substring(1),
+        paramJson
+      try {
+        paramJson = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}')
+      } catch(err) {
+        paramJson = {}
+      }
+      return paramJson
     },
 
     // 把json对象格式化成URL的queryString
     stringifyUrl: function(json) {
-      var paramStr = Object.keys(statsParam).map(function(k) {
-        return encodeURIComponent(k) + '=' + encodeURIComponent(statsParam[k])
+      var paramStr = Object.keys(json).map(function(k) {
+        return encodeURIComponent(k) + '=' + encodeURIComponent(json[k])
       }).join('&')
       return paramStr
     },
@@ -31,7 +37,7 @@
       // 添加默认参数
       statsParam._t = +new Date()
       statsParam.url = location.href
-      statsParam.token = urlParam.token
+      statsParam.token = urlParam.token || ''
 
       var paramStr = logger.stringifyUrl(statsParam)
 
