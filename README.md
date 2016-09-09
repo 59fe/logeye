@@ -26,6 +26,7 @@ logeye.emit({opt1:33, opt2: 'eewr'})
 <script src="./index.js"></script>
 <script>
     logeye.emit({
+        id: 1,
         opt1:33,
         opt2: 'eewr',
         opt3: Math.random()
