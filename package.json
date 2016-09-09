@@ -1,7 +1,7 @@
 {
   "name": "logger",
   "version": "1.0.0",
-  "description": "用户行为统计打点工具",
+  "description": "用户行为统计打点工具 | User behavior statistics tool",
   "main": "index.js",
   "scripts": {
     "start": "uglifyjs index.js -o index.min.js",
