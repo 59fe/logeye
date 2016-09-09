@@ -1,4 +1,4 @@
-# logger
+# logeye
 
 用户行为统计打点工具    
 User behavior statistics tool
@@ -7,25 +7,25 @@ User behavior statistics tool
 
 UMD Specification
 
-support __AMD, CommonJS, Node, window.logger__
+support __AMD, CommonJS, Node, window.logeye__
 
 ## Usage
 
 ### CommonJS
 
-  npm i logger --save
+  npm i logeye --save
 
 ``` 
-import logger from logger
-logger.emit({opt1:33, opt2: 'eewr'})
+import logeye from logeye
+logeye.emit({opt1:33, opt2: 'eewr'})
 ```
 
-### winow.logger
+### winow.logeye
 
 ```
 <script src="./index.js"></script>
 <script>
-    logger.emit({
+    logeye.emit({
         opt1:33,
         opt2: 'eewr',
         opt3: Math.random()

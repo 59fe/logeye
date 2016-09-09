@@ -7,10 +7,10 @@
     module.exports = factory()
   } else {
     // 浏览器全局变量(root 即 window)
-    root.logger = factory()
+    root.logeye = factory()
   }
 }(this, function () {
-  var logger = {
+  var logeye = {
     // 把URL的queryString格式化成json对象，参数url如果不传，则取location.search
     parseUrl: function(url) {
       var search = url ? url.replace(/^.+?\?/, '').replace(/#.*$/, '') : location.search.substring(1),
@@ -33,13 +33,13 @@
 
     emit: function(statsParam) {
       if (!Object.keys) return
-      var urlParam = logger.parseUrl()
+      var urlParam = logeye.parseUrl()
       // 添加默认参数
       statsParam._t = +new Date()
       statsParam.url = location.href
       statsParam.token = urlParam.token || ''
 
-      var paramStr = logger.stringifyUrl(statsParam)
+      var paramStr = logeye.stringifyUrl(statsParam)
 
       var url = 'http://s.59shangcheng.com/v.gif?' + paramStr
 
@@ -49,5 +49,5 @@
   }
 
   //    暴露公共方法
-  return logger
+  return logeye
 }))
